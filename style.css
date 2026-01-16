@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.nav-section{
+    display: flex;
+    gap: 5em;
+    background-color: rgb(65, 65, 207);
+    border-bottom: 1vmin solid green ;
+    height: 6em;
+    align-items: center;
+    justify-content: space-between;
+}
+.logoimg{
+    height: 6vmin;
+    width: 19vmin;
+    border-radius: 5vmin;
+}
+.nav-element a{
+    text-decoration: none;
+    padding: 2em;
+    font-weight: 500;
+    font-size: 1.3em;
+    color: aliceblue;
+}
+.user-section{
+    display: flex;
+    gap: 1vmin;
+    align-items: center;
+}
+.userLbtn img{
+    height: 5vmin;
+   border-radius: 50%;
+}
+.userLbtn{
+    border-radius: 50%;
+}
+.modebtn{
+    width: 7vmin;
+    height: 3vmin;
+    border-radius: 5vmin;
+}
