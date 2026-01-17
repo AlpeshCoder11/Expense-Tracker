@@ -52,6 +52,7 @@ body{
     width: 5em;
     height: 2em;
     border-radius: 5vmin;
+    font-size: 1em;
     cursor: pointer;
 }
 .modeDL{
@@ -177,6 +178,99 @@ body{
     padding: 1rem;
 }
 
+
+.overlay{
+   display: none;
+} 
+.overlay1{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Popup box */
+.popup{
+
+    background: #ffffff;
+    min-width: 55vmin;
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.25);
+    position:fixed;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            
+}
+
+/* Close button */
+.closebtn{
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Content */
+.textp{
+    padding: 1.5rem;
+}
+
+.textp h4{
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.textp p{
+    margin: 0.8rem 0 0.3rem;
+    font-size: 0.9rem;
+}
+
+
+input{
+    width: 95%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.6rem;
+    border: 0.08rem solid #ccc;
+    font-size: 0.9rem;
+}
+
+input:focus{
+    border-color: #4f46e5;
+    outline: none;
+}
+
+.popsubtn{
+    margin-top: 1.2rem;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 0.6rem;
+    border: none;
+    background: #4f46e5;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.popsubtn:hover{
+    background: #4338ca;
+}
+
+/* Small screens */
+@media (max-width: 30rem){
+    .popup{
+        width: 92vw;
+    }
+
+    .textp{
+        padding: 1.2rem;
+    }
+}
 .mobile-nav a{
     color: white;
     text-decoration: none;

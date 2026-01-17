@@ -36,6 +36,7 @@
 
     </header>
     <main>
+
         <p class="text1">DASHBOARD</p>
        <div class="btntext">
          <p class="welcomeText">WELCOME</p>
@@ -52,7 +53,7 @@
             </div>
             <div class="incomedtl">
                 <div class="text3 intext">income</div>
-                <div class="imoney intext">$000</div>
+                <div class="imoney intext">000</div>
                 <div class="text3 intext">All Time</div>
             </div>
             <div class="expensedtl">
@@ -65,10 +66,33 @@
             <div class="graph"><p>graph</p></div>
             <div class="monthGraph"><p>month</p></div>
         </div>
+        </div>
     </main>
+            <div class="overlay">
+    <div class="popup">
+        <button class="closebtn">&times;</button>
+
+        <div class="textp">
+            <h4>Create a new income transaction</h4>
+
+            <p>Amount</p>
+            <input type="number" placeholder="Enter amount" id="incomeval">
+
+            <p>Description (Optional)</p>
+            <input type="text" placeholder="Description">
+
+            <p>Transaction Date</p>
+            <input type="date">
+
+            <button class="popsubtn">Add new income</button>
+        </div>
+    </div>
+
 </body>
 <script src="navbar.js">
 
 </script>
+<script src="add.js">
 
+</script>
 </html>
