@@ -40,14 +40,26 @@ body{
 .userLbtn img{
     height: 5vmin;
    border-radius: 50%;
+   border: none;
+   cursor: pointer;
 }
 .userLbtn{
     border-radius: 50%;
+    border: none;
+   background-color: #3f51b5;  
 }
 .modebtn{
-    width: 7vmin;
-    height: 3vmin;
+    width: 5em;
+    height: 2em;
     border-radius: 5vmin;
+    cursor: pointer;
+}
+.modeDL{
+    background-color: black;
+
+}
+.dmtext{
+    color:white;
 }
 .text1{
     display: block;
