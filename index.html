@@ -10,6 +10,10 @@
     <header>
         <nav>
             <div class="nav-section">
+                <div class="hamburger" id="hamburger">
+    ☰
+</div>
+
                 <div class="logo">
                     <img class="logoimg" src="logo.jpeg" alt="logo">
                 </div>
@@ -24,30 +28,37 @@
             </div>
             </div>
         </nav>
+        <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="budget.html">Budget</a>
+    <a href="history.html">History</a>
+</div>
+
     </header>
     <main>
         <p class="text1">DASHBOARD</p>
-        <p class="welcomeText">WELCOME</p>
+       <div class="btntext">
+         <p class="welcomeText">WELCOME</p>
         <div class="addbtn">
             <button class="newincome">new income</button>
             <button class="newexpense">new expense</button>  
-        </div>
-        <div class="dateshow">date option</div>
-        <div class="showdetail">
+        </div></div>
+        
+        <div class="showdtl">
             <div class="remainig">
-                <div class="text2">remaing</div>
-                <div class="rmoney">000</div>
-                <div class="text2">All Time</div>
+                <div class="text2 intext">remaing</div>
+                <div class="rmoney intext">$000</div>
+                <div class="text2 intext">All Time</div>
             </div>
             <div class="incomedtl">
-                <div class="text3">income</div>
-                <div class="imoney">000</div>
-                <div class="text3">All Time</div>
+                <div class="text3 intext">income</div>
+                <div class="imoney intext">$000</div>
+                <div class="text3 intext">All Time</div>
             </div>
             <div class="expensedtl">
-                <div class="text4">expense</div>
-                <div class="emoney">000</div>
-                <div class="text4">All Time</div>
+                <div class="text4 intext">expense</div>
+                <div class="emoney intext">$000</div>
+                <div class="text4 intext">All Time</div>
             </div>
         </div>
         <div class="analysis">
@@ -56,4 +67,8 @@
         </div>
     </main>
 </body>
+<script src="navbar.js">
+
+</script>
+
 </html>

@@ -2,25 +2,34 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+     background: #f5f6fa;
+}
 .nav-section{
     display: flex;
     gap: 5em;
-    background-color: rgb(65, 65, 207);
+    background-color: #3f51b5;
     border-bottom: 1vmin solid green ;
     height: 6em;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1.5rem;
+    
 }
 .logoimg{
     height: 6vmin;
     width: 19vmin;
     border-radius: 5vmin;
 }
+.nav-element{
+    display: flex;
+    gap: 1.5rem;
+}
 .nav-element a{
     text-decoration: none;
     padding: 2em;
     font-weight: 500;
-    font-size: 1.3em;
+    font-size: 1.3rem;
     color: aliceblue;
 }
 .user-section{
@@ -39,4 +48,148 @@
     width: 7vmin;
     height: 3vmin;
     border-radius: 5vmin;
+}
+.text1{
+    display: block;
+    font-weight: 900;
+    font-size: 3vmin;
+    margin: 0.7vmin;
+}
+.btntext{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 2em;
+}
+.welcomeText{
+    font-weight:600 ;
+    margin-top: 1em;
+   
+}
+.addbtn{
+    display: flex;
+    gap: 5vmin;
+    justify-content: end;
+    
+    height: 4vmin;
+
+}
+.newincome,.newexpense{
+    padding: .6rem 1.2rem;
+    border-radius: .6rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    height: 8vmin;
+}
+.newincome{
+    color:green;
+
+}
+.newexpense{
+    color: red;
+}
+.datashow{
+    display: block;
+}
+.showdtl{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    
+}
+
+.remainig ,.incomedtl,.expensedtl{
+    border: .2vmin solid green;
+    min-height: 18vmin;
+    width: 30vmin;
+    display: grid;
+    grid-template-rows: auto 1fr auto;;
+    border-radius: 1rem;
+    padding: 1rem;
+
+}
+.intext{
+    margin-left: 1vmin;
+   
+}
+.remainig{
+    color: blue;
+    font-size: 3vmin;
+}
+.incomedtl{
+    color: green;
+    font-size: 3vmin;
+}
+.expensedtl{
+    color: red;
+    font-size: 3vmin;
+}
+.rmoney,.imoney,.emoney{
+    font-size: 3.3rem;
+     margin-top: 1vmin;
+}
+.analysis{
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    min-height: 50vmin;
+    margin: 2vmin;
+    padding: 1.5rem;
+    
+
+}   
+.graph{
+    border: 0.4vmin solid green;
+    border-radius: 2vmin;
+    padding: 1vmin;
+}
+.monthGraph{
+ border: 0.4vmin solid green;
+ border-radius: 2vmin;
+ padding: 1vmin;
+}
+.hamburger{
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.mobile-nav{
+    display: none;
+    flex-direction: column;
+    background: #3f51b5;
+    padding: 1rem;
+}
+
+.mobile-nav a{
+    color: white;
+    text-decoration: none;
+    padding: .8rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+@media (max-width: 768px){
+    .nav-element{
+        display: none; /* later you can add hamburger */
+    }
+    .showdtl{
+        display: grid;
+        gap: 1vmin;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .analysis{
+        grid-template-columns: 1fr;
+    }
+        .hamburger{
+        display: block; /* show hamburger */
+    }
+
+    .mobile-nav.active{
+        display: flex;
+    }
 }
