@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>expense tracker</title>
+    <link rel="stylesheet" href="history.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-section">
+                <div class="hamburger" id="hamburger">
+                     ☰
+                </div>
+
+                <div class="logo">
+                    <img class="logoimg" src="logo.jpeg" alt="logo">
+                </div>
+            <div class="nav-element">
+                <a href="index.html">Home</a>
+                <a href="budget.html">Budget</a>
+                <a href="history.html">History</a>
+            </div>
+            <div class="user-section">
+                <button class="modebtn">mode</button>
+                <button class="userLbtn"><img src="userlogo.jpg" alt="user logo"></button>
+            </div>
+            </div>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="budget.html">Budget</a>
+    <a href="history.html">History</a>
+</div>
+
+    </header>
+    <main>
+
+        <p class="text1">history page</p>
+       <div class="btntext">
+         <p class="welcomeText">WELCOME</p>
+        <div class="addbtn">
+            <button class="newincome">new income</button>
+            <button class="newexpense">new expense</button>  
+        </div></div>
+        
+       
+           <div class="tablecontainer">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Catagory</th>
+                <th>Description</th>
+                <th></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>2024-05-10</td>
+                <td>133</td>
+                <td>Income</td>
+                <td>alpesh gave me</td>
+                <td><button>edit</button></td>
+                
+            </tr>
+
+  
+        </tbody>
+    </table>
+</div>
+
+     
+    </main>
+            <div class="overlay">
+    <div class="popup">
+        <button class="closebtn">&times;</button>
+
+        <div class="textp nodisplay">
+            <h4>Create a new income transaction</h4>
+
+            <p>Amount</p>
+            <input type="number" placeholder="Enter amount" id="incomeval">
+
+            <p>Description (Optional)</p>
+            <input type="text" placeholder="Description" class="destext">
+
+            <p>Transaction Date</p>
+            <input type="date" class="date">
+
+            <button class="popsubtn">Add new income</button>
+        </div>
+        <div class="textp2 nodisplay">
+            <h4>Create a new expense transaction</h4>
+
+            <p>Amount</p>
+            <input type="number" placeholder="Enter amount" id="expenseval">
+
+            <p>Description (Optional)</p>
+            <input type="text" placeholder="Description" class="destext">
+            <p>Category</p>
+            <select class="category">
+                <option value="other">❓ other</option>
+                <option value="bills">🧾 Bills</option>
+                <option value="food">🍽 food</option>
+                <option value="education">&#127891; education</option>
+                <option value="entertainment"> 🎬 entertainment</option>
+            </select>
+
+            <p>Transaction Date</p>
+            <input type="date" class="date">
+
+            <button class="popsubtn2">Add new expense</button>
+        </div>
+    </div>
+
+</body>
+<script src="navbar.js">
+
+</script>
+<script src="history.js">
+
+</script>
+</html>

@@ -103,9 +103,7 @@ body{
 .newexpense{
     color: red;
 }
-.datashow{
-    display: block;
-}
+
 .showdtl{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -114,56 +112,7 @@ body{
     
 }
 
-.remainig ,.incomedtl,.expensedtl{
-    border: .2vmin solid green;
-    min-height: 18vmin;
-    width: 30vmin;
-    display: grid;
-    grid-template-rows: auto 1fr auto;;
-    border-radius: 1rem;
-    padding: 1rem;
 
-}
-.intext{
-    margin-left: 1vmin;
-   
-}
-.remainig{
-    color: blue;
-    font-size: 3vmin;
-}
-.incomedtl{
-    color: green;
-    font-size: 3vmin;
-}
-.expensedtl{
-    color: red;
-    font-size: 3vmin;
-}
-.rmoney,.imoney,.emoney{
-    font-size: 3.3rem;
-     margin-top: 1vmin;
-}
-.analysis{
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: 1fr 1fr;
-    min-height: 50vmin;
-    margin: 2vmin;
-    padding: 1.5rem;
-    
-
-}   
-.graph{
-    border: 0.4vmin solid green;
-    border-radius: 2vmin;
-    padding: 1vmin;
-}
-.monthGraph{
- border: 0.4vmin solid green;
- border-radius: 2vmin;
- padding: 1vmin;
-}
 .hamburger{
     display: none;
     font-size: 2rem;
@@ -290,13 +239,45 @@ input:focus{
     text-decoration: none;
     padding: .8rem 0;
     font-size: 1.1rem;
-    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-bottom: 0.1em solid rgba(255,255,255,.2);
 }
+ .table-container {
+        max-width: 70em;
+        margin: 3vmin auto;
+        overflow-x: auto;
+        border: 1px solid #ccc;
+        border-radius: 2vmin;
+        background-color: #fff;
+    }
 
   
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+
    
+    thead {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    th, td {
+        padding:1em 1em ;
+        text-align: left;
+        border-bottom: 0.1em solid #ddd;
+    }
 
 
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
 @media (max-width: 768px){
     .nav-element{
         display: none; 
@@ -323,5 +304,8 @@ input:focus{
     .textp{
         padding: 1.2rem;
     }
-     
+       th, td {
+            padding: 0.5em;
+            font-size: 0.8em;
+        }
 }
