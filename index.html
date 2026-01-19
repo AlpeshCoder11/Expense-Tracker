@@ -48,7 +48,7 @@
         <div class="showdtl">
             <div class="remainig">
                 <div class="text2 intext">remaing</div>
-                <div class="rmoney intext">$000</div>
+                <div class="rmoney intext">000</div>
                 <div class="text2 intext">All Time</div>
             </div>
             <div class="incomedtl">
@@ -58,7 +58,7 @@
             </div>
             <div class="expensedtl">
                 <div class="text4 intext">expense</div>
-                <div class="emoney intext">$000</div>
+                <div class="emoney intext">000</div>
                 <div class="text4 intext">All Time</div>
             </div>
         </div>
@@ -72,7 +72,7 @@
     <div class="popup">
         <button class="closebtn">&times;</button>
 
-        <div class="textp">
+        <div class="textp nodisplay">
             <h4>Create a new income transaction</h4>
 
             <p>Amount</p>
@@ -85,6 +85,28 @@
             <input type="date">
 
             <button class="popsubtn">Add new income</button>
+        </div>
+        <div class="textp2 nodisplay">
+            <h4>Create a new expense transaction</h4>
+
+            <p>Amount</p>
+            <input type="number" placeholder="Enter amount" id="expenseval">
+
+            <p>Description (Optional)</p>
+            <input type="text" placeholder="Description">
+            <p>Category</p>
+            <select class="category">
+                <option value="other">❓ other</option>
+                <option value="bills">🧾 Bills</option>
+                <option value="food">🍽 food</option>
+                <option value="education">&#127891; education</option>
+                <option value="entertainment"> 🎬 entertainment</option>
+            </select>
+
+            <p>Transaction Date</p>
+            <input type="date">
+
+            <button class="popsubtn2">Add new expense</button>
         </div>
     </div>
 

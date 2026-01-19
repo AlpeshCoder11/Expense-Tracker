@@ -191,7 +191,7 @@ body{
     justify-content: center;
 }
 
-/* Popup box */
+
 .popup{
 
     background: #ffffff;
@@ -205,7 +205,7 @@ body{
             
 }
 
-/* Close button */
+
 .closebtn{
     position: absolute;
     top: 0.8rem;
@@ -215,9 +215,11 @@ body{
     border: none;
     cursor: pointer;
 }
+/* .nodisplay{
+    display: none;
+} */
 
-/* Content */
-.textp{
+.textp,.textp2{
     padding: 1.5rem;
 }
 
@@ -230,6 +232,17 @@ body{
     margin: 0.8rem 0 0.3rem;
     font-size: 0.9rem;
 }
+
+.textp2 h4{
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.textp2 p{
+    margin: 0.8rem 0 0.3rem;
+    font-size: 0.9rem;
+}
+
 
 
 input{
@@ -245,7 +258,7 @@ input:focus{
     outline: none;
 }
 
-.popsubtn{
+.popsubtn,.popsubtn2{
     margin-top: 1.2rem;
     width: 100%;
     padding: 0.7rem;
@@ -260,17 +273,18 @@ input:focus{
 .popsubtn:hover{
     background: #4338ca;
 }
-
-/* Small screens */
-@media (max-width: 30rem){
-    .popup{
-        width: 92vw;
-    }
-
-    .textp{
-        padding: 1.2rem;
-    }
+.popsubtn2:hover{
+    background: #4338ca;
 }
+
+.category{
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.6rem;
+    border: 0.08rem solid #ccc;
+    font-size: 0.9rem;
+}
+
 .mobile-nav a{
     color: white;
     text-decoration: none;
@@ -281,7 +295,7 @@ input:focus{
 
 @media (max-width: 768px){
     .nav-element{
-        display: none; /* later you can add hamburger */
+        display: none; 
     }
     .showdtl{
         display: grid;
@@ -297,5 +311,12 @@ input:focus{
 
     .mobile-nav.active{
         display: flex;
+    }
+        .popup{
+        width: 92vw;
+    }
+
+    .textp{
+        padding: 1.2rem;
     }
 }
