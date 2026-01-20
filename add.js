@@ -10,13 +10,22 @@ const eMoney =document.querySelector(".emoney");
 const rMoney =document.querySelector(".rmoney");
 const incomePop =document.querySelector(".textp");
 const expensePop =document.querySelector(".textp2");
-let incomeVal=document.querySelector("#incomeval");
-let expenseVal=document.querySelector("#expenseval");
+const tableAdd =document.querySelector(".tablecontainer");
+let incomeVal =document.querySelector("#incomeval");
+let expenseVal =document.querySelector("#expenseval");
+let edateVal = document.querySelector(".edate");
+let idateVal = document.querySelector(".idate");
+
+let edesciptionText = document.querySelector(".edestext");
+let idesciptionText = document.querySelector(".idestext");
+let categorySelect = document.querySelector(".category");
 let totalIncome=0;
 let totalExpense=0;
 let totalRemaining=0;
-let userName = "alpesh"
- 
+let userName = "alpesh";
+
+let userdata = JSON.parse(localStorage.getItem("userdtl")) || []; 
+showData();
 
 welcomeText.innerText="Welecome, "+userName;
 
@@ -35,37 +44,88 @@ newExpense.addEventListener("click",()=>{
 closeBtn.addEventListener("click",()=>{
   ipopup.classList.remove("overlay1");
 });
+
 popsubtn.addEventListener("click", () => {
-
+ 
  let enteredIncome = Number(incomeVal.value);
- if(enteredIncome<0){
-  alert("enert valid value");
+ let enteredDate = idateVal.value;
+ let Catagory="income";
+ let desciText=idesciptionText.value;
+
+ let newUser ={
+   Date:enteredDate,
+   Amount:enteredIncome,
+   Catagory:Catagory,
+   Desciption:desciText
  }
+
+ if (!enteredDate || !desciText || enteredIncome <= 0) {
+  alert("Please fill all fields correctly");
+  return;
+}
+
 else{
+  
+    userdata.push(newUser);
+    localStorage.setItem("userdtl", JSON.stringify(userdata));
 
-   totalIncome += enteredIncome;
-   totalRemaining=totalIncome-totalExpense;
+    showData(); 
 
-  iMoney.innerText = "\u20B9"+totalIncome;
-  incomeVal.value = "";
-  rMoney.innerText="\u20B9"+totalRemaining;
-  ipopup.classList.remove("overlay1");}
+}
 });
 popsubtn2.addEventListener("click", () => {
  
- let enteredIncome = Number(expenseVal.value);
-if(enteredIncome<0){
-  alert("enert valid value");
+ let enteredExpense = Number(expenseVal.value);
+ 
+ let enteredDate = edateVal.value;
+ let Catagory = categorySelect.value;
+ let desciText=edesciptionText.value;
+
+ let newUser ={
+   Date:enteredDate,
+   Amount:enteredExpense,
+   Catagory:Catagory,
+   Desciption:desciText
  }
+
+if (!enteredDate || !desciText || enteredExpense <= 0) {
+  alert("Please fill all fields correctly");
+  return;
+}
+
 else{
 
+        userdata.push(newUser);
+    localStorage.setItem("userdtl", JSON.stringify(userdata));
 
-  totalExpense += enteredIncome;
+    showData(); 
+    
+}
+});
+
+
+function showData() {
+ 
+  totalIncome = 0;
+  totalExpense = 0;
+
+   userdata.forEach((element) => {
+        // Ensure we handle numbers correctly
+        let amount = Number(element.Amount);
+        
+        if (element.Catagory === "income") {
+            totalIncome += amount;
+        } else {
+            totalExpense += amount;
+        }
+    });
   totalRemaining=totalIncome-totalExpense;
+  iMoney.innerText = "\u20B9"+totalIncome;
+  incomeVal.value = "";
   eMoney.innerText = "\u20B9"+totalExpense;
   expenseVal.value = "";
   rMoney.innerText="\u20B9"+totalRemaining;
-  ipopup.classList.remove("overlay1");}
-});
-
+  
+  ipopup.classList.remove("overlay1");
+}
 

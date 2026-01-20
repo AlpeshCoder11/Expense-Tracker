@@ -5,25 +5,26 @@ const ipopup = document.querySelector(".overlay");
 const closeBtn=document.querySelector(".closebtn");
 const popsubtn = document.querySelector(".popsubtn");
 const popsubtn2 = document.querySelector(".popsubtn2");
-const iMoney = document.querySelector(".imoney");
-const eMoney =document.querySelector(".emoney");
-const rMoney =document.querySelector(".rmoney");
+
 const incomePop =document.querySelector(".textp");
 const expensePop =document.querySelector(".textp2");
 const tableAdd =document.querySelector(".tablecontainer");
 let incomeVal =document.querySelector("#incomeval");
 let expenseVal =document.querySelector("#expenseval");
-let dateVal = document.querySelector(".date");
-let desciptionText = document.querySelector(".destext");
-let totalIncome=0;
-let totalExpense=0;
-let totalRemaining=0;
+let edateVal = document.querySelector(".edate");
+let idateVal = document.querySelector(".idate");
+
+let edesciptionText = document.querySelector(".edestext");
+let idesciptionText = document.querySelector(".idestext");
+
+let categorySelect = document.querySelector(".category");
+
 let userName = "alpesh";
 
 let userdata = JSON.parse(localStorage.getItem("userdtl")) || [
 
 ]; 
-
+showData();
 welcomeText.innerText="Welecome, "+userName;
 
 
@@ -44,13 +45,15 @@ closeBtn.addEventListener("click",()=>{
 popsubtn.addEventListener("click", () => {
  
  let enteredIncome = Number(incomeVal.value);
- let enteredDate = dateVal.value;
+ let enteredDate = idateVal.value;
  let Catagory="income";
+ let desciText=idesciptionText.value;
 
  let newUser ={
    Date:enteredDate,
    Amount:enteredIncome,
-   Catagory:Catagory
+   Catagory:Catagory,
+   Desciption:desciText
  }
 
  if(enteredIncome<0){
@@ -63,29 +66,40 @@ else{
 
     showData(); 
 
-  //  totalIncome += enteredIncome;
-  //  totalRemaining=totalIncome-totalExpense;
 
-  // iMoney.innerText = "\u20B9"+totalIncome;
-  incomeVal.value = "";
-  // rMoney.innerText="\u20B9"+totalRemaining;
-   ipopup.classList.remove("overlay1");}
+
+   }
 });
 popsubtn2.addEventListener("click", () => {
  
  let enteredIncome = Number(expenseVal.value);
+ 
+ let enteredDate = edateVal.value;
+ let Catagory = categorySelect.value;
+ let desciText=edesciptionText.value;
+
+ let newUser ={
+   Date:enteredDate,
+   Amount:enteredIncome,
+   Catagory:Catagory,
+   Desciption:desciText
+ }
+
 if(enteredIncome<0){
   alert("enert valid value");
  }
 else{
 
+        userdata.push(newUser);
+    localStorage.setItem("userdtl", JSON.stringify(userdata));
 
-  totalExpense += enteredIncome;
-  totalRemaining=totalIncome-totalExpense;
-  eMoney.innerText = "\u20B9"+totalExpense;
-  expenseVal.value = "";
-  rMoney.innerText="\u20B9"+totalRemaining;
-  ipopup.classList.remove("overlay1");}
+    showData(); 
+
+ 
+
+  
+ }
+
 });
 
 
@@ -104,20 +118,26 @@ function showData() {
     
    
     userdata.forEach((element) => {
+       let amountColor = (element.Catagory === "income") ? "green" : "red";
+
         finaldata += `
             <tr>
-                
                 <td>${element.Date}</td>
-                <td>${element.Amount}</td>
+                
+                <td style="color: ${amountColor}; font-weight: bold;">
+                    ${element.Amount}
+                </td>
                 <td>${element.Catagory}</td>
                 <td>${element.Desciption}</td>
+                 <td><button>edit</button></td>
             </tr>
         `;
     });
 
-  
     
-
+     expenseVal.value = "";
+     incomeVal.value = ""
+    ipopup.classList.remove("overlay1");
     tableAdd.innerHTML = finaldata;
 }
 
