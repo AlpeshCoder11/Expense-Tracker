@@ -278,6 +278,30 @@ input:focus{
     tbody tr:nth-child(even) {
         background-color: #f9f9f9;
     }
+    .deletbtn {
+  background: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  padding: 0.4em 0.8em;
+  min-height: 36px;
+
+  transition: background 0.2s, color 0.2s;
+}
+
+.deletbtn:hover {
+  background: transparent;
+  color: #ff4742;
+}
+
+.deletbtn:active {
+  opacity: 0.7;
+}
+
+   
 @media (max-width: 768px){
     .nav-element{
         display: none; 
@@ -308,4 +332,10 @@ input:focus{
             padding: 0.5em;
             font-size: 0.8em;
         }
+
+      .deletbtn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+    min-height: 2rem;
+  }
 }

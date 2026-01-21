@@ -9,6 +9,7 @@ const popsubtn2 = document.querySelector(".popsubtn2");
 const incomePop =document.querySelector(".textp");
 const expensePop =document.querySelector(".textp2");
 const tableAdd =document.querySelector(".tablecontainer");
+const editBtn = document.querySelector(".editbtn");
 let incomeVal =document.querySelector("#incomeval");
 let expenseVal =document.querySelector("#expenseval");
 let edateVal = document.querySelector(".edate");
@@ -104,7 +105,7 @@ else{
 
 
 function showData() {
-    let finaldata = `    <table>
+    let finaldata = ` <table>
         <thead>
             <tr>
                 <th>Date</th>
@@ -117,7 +118,7 @@ function showData() {
         </thead>`;
     
    
-    userdata.forEach((element) => {
+    userdata.forEach((element , index) => {
        let amountColor = (element.Catagory === "income") ? "green" : "red";
 
         finaldata += `
@@ -129,7 +130,7 @@ function showData() {
                 </td>
                 <td>${element.Catagory}</td>
                 <td>${element.Desciption}</td>
-                 <td><button>edit</button></td>
+                 <td><button onclick="deletRow(${index})" class="deletbtn">delet</button></td>
             </tr>
         `;
     });
@@ -141,3 +142,12 @@ function showData() {
     tableAdd.innerHTML = finaldata;
 }
 
+
+window.deletRow = function(index) {
+    
+    userdata.splice(index, 1);
+    
+  
+    localStorage.setItem("userdtl", JSON.stringify(userdata));
+    showData();
+};
