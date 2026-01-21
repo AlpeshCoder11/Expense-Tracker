@@ -16,6 +16,8 @@ let expenseVal =document.querySelector("#expenseval");
 let edateVal = document.querySelector(".edate");
 let idateVal = document.querySelector(".idate");
 
+
+
 let edesciptionText = document.querySelector(".edestext");
 let idesciptionText = document.querySelector(".idestext");
 let categorySelect = document.querySelector(".category");
@@ -23,6 +25,13 @@ let totalIncome=0;
 let totalExpense=0;
 let totalRemaining=0;
 let userName = "alpesh";
+
+const today = new Date().toISOString().split("T")[0];
+
+
+
+idateVal.setAttribute("max", today);
+edateVal.setAttribute("max", today);
 
 let userdata = JSON.parse(localStorage.getItem("userdtl")) || []; 
 showData();
@@ -58,7 +67,7 @@ popsubtn.addEventListener("click", () => {
    Catagory:Catagory,
    Desciption:desciText
  }
-
+date.setAttribute("max",today);
  if (!enteredDate || !desciText || enteredIncome <= 0) {
   alert("Please fill all fields correctly");
   return;
@@ -87,7 +96,7 @@ popsubtn2.addEventListener("click", () => {
    Catagory:Catagory,
    Desciption:desciText
  }
-
+date.setAttribute("max",today);
 if (!enteredDate || !desciText || enteredExpense <= 0) {
   alert("Please fill all fields correctly");
   return;
