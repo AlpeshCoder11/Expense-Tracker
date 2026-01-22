@@ -44,9 +44,20 @@
             <button class="newincome">new income</button>
             <button class="newexpense">new expense</button>  
         </div></div>
-        
-       
+           <div class="filter">
+            <input type="month" id="monthFilter">
+            <select class="sortby">
+                <option value="sort">SortBy</option>
+                <option value="date">date</option>
+                <option value="amount low to high">Amount: Low to High</option>
+                <option value="amount high to low">Amount: High to Low</option>
+            </select>
+            <button class="resetfilters" >reset</button>
+        </div>
+
            <div class="tablecontainer">
+         
+
     <table>
         <thead>
             <tr>
@@ -81,7 +92,7 @@
             <input type="text" placeholder="Description" class="idestext">
 
             <p>Transaction Date</p>
-            <input type="date" class="idate">
+            <input type="date" class="idate date">
 
             <button class="popsubtn">Add new income</button>
         </div>
@@ -103,7 +114,7 @@
             </select>
 
             <p>Transaction Date</p>
-            <input type="date" class="edate">
+            <input type="date" class="edate date">
 
             <button class="popsubtn2">Add new expense</button>
         </div>

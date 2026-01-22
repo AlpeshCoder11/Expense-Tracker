@@ -67,7 +67,7 @@ popsubtn.addEventListener("click", () => {
    Catagory:Catagory,
    Desciption:desciText
  }
-date.setAttribute("max",today);
+
  if (!enteredDate || !desciText || enteredIncome <= 0) {
   alert("Please fill all fields correctly");
   return;
@@ -96,7 +96,7 @@ popsubtn2.addEventListener("click", () => {
    Catagory:Catagory,
    Desciption:desciText
  }
-date.setAttribute("max",today);
+
 if (!enteredDate || !desciText || enteredExpense <= 0) {
   alert("Please fill all fields correctly");
   return;

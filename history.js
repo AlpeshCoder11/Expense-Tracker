@@ -10,6 +10,9 @@ const incomePop =document.querySelector(".textp");
 const expensePop =document.querySelector(".textp2");
 const tableAdd =document.querySelector(".tablecontainer");
 const editBtn = document.querySelector(".editbtn");
+const monthFilter = document.querySelector("#monthFilter");
+const selectedMonth =   monthFilter.value;
+const resetFilters =document.querySelector(".resetfilters");
 let incomeVal =document.querySelector("#incomeval");
 let expenseVal =document.querySelector("#expenseval");
 let edateVal = document.querySelector(".edate");
@@ -19,13 +22,25 @@ let edesciptionText = document.querySelector(".edestext");
 let idesciptionText = document.querySelector(".idestext");
 
 let categorySelect = document.querySelector(".category");
+let sortSelect = document.querySelector(".sortby");
 
 let userName = "alpesh";
 
 let userdata = JSON.parse(localStorage.getItem("userdtl")) || [
 
 ]; 
-showData();
+
+
+
+const today = new Date().toISOString().split("T")[0];
+
+
+
+idateVal.setAttribute("max", today);
+edateVal.setAttribute("max", today);
+
+
+showData(getFilteredData());
 welcomeText.innerText="Welecome, "+userName;
 
 
@@ -51,6 +66,7 @@ popsubtn.addEventListener("click", () => {
  let desciText=idesciptionText.value;
 
  let newUser ={
+    id: Date.now(),  
    Date:enteredDate,
    Amount:enteredIncome,
    Catagory:Catagory,
@@ -65,8 +81,9 @@ else{
     userdata.push(newUser);
     localStorage.setItem("userdtl", JSON.stringify(userdata));
 
-    showData(); 
+    showData(getFilteredData()); 
 
+ipopup.classList.remove("overlay1");
 
 
    }
@@ -80,6 +97,7 @@ popsubtn2.addEventListener("click", () => {
  let desciText=edesciptionText.value;
 
  let newUser ={
+    id: Date.now(),  
    Date:enteredDate,
    Amount:enteredIncome,
    Catagory:Catagory,
@@ -94,17 +112,48 @@ else{
         userdata.push(newUser);
     localStorage.setItem("userdtl", JSON.stringify(userdata));
 
-    showData(); 
+    showData(getFilteredData()); 
 
- 
+ ipopup.classList.remove("overlay1");
+
 
   
  }
 
 });
+resetFilters.addEventListener("click",()=>{
+    monthFilter.value="";
+    sortSelect.value="sort";
+    showData();
+
+})
+monthFilter.addEventListener("change",()=>{
+showData(getFilteredData());
+
+});
+
+sortSelect.addEventListener("change",()=>{
+  
+    
+            let sortedData=[...getFilteredData()];
+    if(sortSelect.value=="amount low to high"){
+     sortedData.sort((a, b) => a.Amount - b.Amount);
+     showData(sortedData);
+    }
+    else if(sortSelect.value=="amount high to low"){
+     sortedData.sort((a, b) => b.Amount - a.Amount);
+     showData(sortedData);
+    }
+    else{
+      sortedData.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+     showData(sortedData);
+    }
+        
+    
+})
 
 
-function showData() {
+function showData(data = userdata) {
     let finaldata = ` <table>
         <thead>
             <tr>
@@ -118,7 +167,7 @@ function showData() {
         </thead>`;
     
    
-    userdata.forEach((element , index) => {
+    data.forEach((element , index) => {
        let amountColor = (element.Catagory === "income") ? "green" : "red";
 
         finaldata += `
@@ -130,24 +179,27 @@ function showData() {
                 </td>
                 <td>${element.Catagory}</td>
                 <td>${element.Desciption}</td>
-                 <td><button onclick="deletRow(${index})" class="deletbtn">delet</button></td>
+                 <td><button onclick="deletRow(${element.id})" class="deletbtn">delet</button></td>
             </tr>
         `;
     });
-
+finaldata += `</table>`;
     
      expenseVal.value = "";
      incomeVal.value = ""
-    ipopup.classList.remove("overlay1");
+
     tableAdd.innerHTML = finaldata;
 }
 
 
-window.deletRow = function(index) {
-    
-    userdata.splice(index, 1);
-    
-  
-    localStorage.setItem("userdtl", JSON.stringify(userdata));
-    showData();
+
+window.deleteRow = function(id) {
+  userdata = userdata.filter(item => item.id !== id);
+  localStorage.setItem("userdtl", JSON.stringify(userdata));
+  showData(getFilteredData());
 };
+
+function getFilteredData() {
+  const month = monthFilter.value;
+  return month ? userdata.filter(item => item.Date.startsWith(month)) : userdata;
+}

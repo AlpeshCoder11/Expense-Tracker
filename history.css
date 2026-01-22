@@ -300,6 +300,14 @@ input:focus{
 .deletbtn:active {
   opacity: 0.7;
 }
+#monthFilter{
+    width: 30%;
+}
+.filter{
+    display: flex;
+    justify-content: space-between;
+
+}
 
    
 @media (max-width: 768px){
