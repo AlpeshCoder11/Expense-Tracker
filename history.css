@@ -104,14 +104,6 @@ body{
     color: red;
 }
 
-.showdtl{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    padding: 1.5rem;
-    
-}
-
 
 .hamburger{
     display: none;
@@ -306,8 +298,37 @@ input:focus{
 .filter{
     display: flex;
     justify-content: space-between;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+    
+    opacity:0.9;
 
 }
+
+
+
+.resetfilters{
+  background: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3vmin;
+
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  padding: 0.4em 0.8em;
+  min-height: 3vmin;
+
+  transition: background 0.2s, color 0.2s;
+  width: 5em;
+}
+.sortby{
+    border: none;
+    border-radius: 2vmin;
+    padding: 1em;
+    font-size: 2vmin;
+}
+
 
    
 @media (max-width: 768px){
