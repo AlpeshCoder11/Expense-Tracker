@@ -179,7 +179,7 @@ function showData(data = userdata) {
                 </td>
                 <td>${element.Catagory}</td>
                 <td>${element.Desciption}</td>
-                 <td><button onclick="deletRow(${element.id})" class="deletbtn">delet</button></td>
+                 <td><button onclick="deleteRow(${element.id})" class="deletbtn">delet</button></td>
             </tr>
         `;
     });
