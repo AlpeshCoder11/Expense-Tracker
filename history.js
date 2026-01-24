@@ -24,7 +24,7 @@ let idesciptionText = document.querySelector(".idestext");
 let categorySelect = document.querySelector(".category");
 let sortSelect = document.querySelector(".sortby");
 
-let userName = "alpesh";
+
 
 let userdata = JSON.parse(localStorage.getItem("userdtl")) || [
 
@@ -41,7 +41,7 @@ edateVal.setAttribute("max", today);
 
 
 showData(getFilteredData());
-welcomeText.innerText="Welecome, "+userName;
+welcomeText.innerText="Welcome";
 
 
 newIncome.addEventListener("click",()=>{

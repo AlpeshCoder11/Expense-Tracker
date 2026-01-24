@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f6fa;
+            flex-direction: column;
+        }
+        .login-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            background-color: #4285F4; /* Google Blue */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover { background-color: #357ae8; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h2>Welcome to Expense Tracker</h2>
+        <p>Please sign in to save your data.</p>
+        <button onclick="loginGoogle()">Sign in with Google</button>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+   
+
+</body>
+</html>

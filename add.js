@@ -24,7 +24,7 @@ let categorySelect = document.querySelector(".category");
 let totalIncome=0;
 let totalExpense=0;
 let totalRemaining=0;
-let userName = "alpesh";
+
 
 const today = new Date().toISOString().split("T")[0];
 
@@ -36,7 +36,7 @@ edateVal.setAttribute("max", today);
 let userdata = JSON.parse(localStorage.getItem("userdtl")) || []; 
 showData();
 
-welcomeText.innerText="Welecome, "+userName;
+welcomeText.innerText="Welcome";
 
 
 newIncome.addEventListener("click",()=>{

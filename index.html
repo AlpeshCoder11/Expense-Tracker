@@ -119,10 +119,27 @@
     </div>
 
 </body>
-<script src="navbar.js">
+<script type="module">
+    import { auth, onAuthStateChanged } from "./firebase.js";
 
+    // Watch the user status
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is logged in!
+            console.log("Logged in as:", user.displayName);
+            
+            // OPTIONAL: Update the "Welcome" text on your page
+            const welcomeText = document.querySelector(".welcomeText");
+            if(welcomeText) welcomeText.innerText = "Welcome, " + user.displayName;
+            
+        } else {
+            // User is NOT logged in. Kick them out!
+            window.location.href = "login.html";
+        }
+    });
 </script>
 <script src="add.js"></script>
+<script src="navbar.js"></script>
 
 
 </script>
