@@ -37,17 +37,18 @@ body{
     gap: 1vmin;
     align-items: center;
 }
-.userLbtn img{
-    height: 5vmin;
+.userLbtn{
+    background-color: #0cf7ff;
+    height: 3em;
+    width: 3em;
    border-radius: 50%;
    border: none;
    cursor: pointer;
+   color: #0131f1;
+   font-weight: 800;
+   font-size: 1em;
 }
-.userLbtn{
-    border-radius: 50%;
-    border: none;
-   background-color: #3f51b5;  
-}
+
 .modebtn{
     width: 5em;
     height: 2em;
@@ -94,7 +95,7 @@ body{
     font-size: 1rem;
     border: none;
     cursor: pointer;
-    height: 8vmin;
+    height: 4em;
 }
 .newincome{
     color:green;
@@ -116,7 +117,7 @@ body{
 
 .remainig ,.incomedtl,.expensedtl{
     border: .2vmin solid green;
-    min-height: 18vmin;
+    min-height: 9em;
     width: 30vmin;
     display: grid;
     grid-template-rows: auto 1fr auto;;
@@ -130,15 +131,15 @@ body{
 }
 .remainig{
     color: blue;
-    font-size: 3vmin;
+    font-size: 0.9em;
 }
 .incomedtl{
     color: green;
-    font-size: 3vmin;
+    font-size: 0.9em;
 }
 .expensedtl{
     color: red;
-    font-size: 3vmin;
+    font-size: 0.9em;
 }
 .rmoney,.imoney,.emoney{
     font-size: 3.3rem;
@@ -149,7 +150,7 @@ body{
     flex-direction: column;
     gap: 1.5rem;
   
-    min-height: 30vmin;
+    min-height: 15em;
     margin: 2vmin;
     padding: 1.5rem;
     border: 0.4vmin solid green;
