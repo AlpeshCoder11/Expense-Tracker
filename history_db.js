@@ -14,6 +14,12 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("Loading History for:", user.displayName);
         loadHistory(user);
+        const welcomeText = document.querySelector(".welcomeText");
+        if(welcomeText) welcomeText.innerText = "Welcome, " + user.displayName;
+
+        const userLbtn=document.querySelector(".userLbtn");
+        const logoName=user.displayName;
+        userLbtn.innerText=logoName.charAt(0);
     } else {
         window.location.href = "login.html";
     }
@@ -83,7 +89,7 @@ function renderTable(dataList) {
 
         const row = `
             <tr>
-                <td>${data.date}</td>
+                <td class="datecolor">${data.date}</td>
                 <td style="color: ${color}; font-weight: bold;">
                     ${data.type === 'income' ? '+' : '-'} ₹${data.amount}
                 </td>
