@@ -1,7 +1,9 @@
 
-import { auth, db, collection, onAuthStateChanged, query, where, onSnapshot, doc, deleteDoc } 
+import { auth, db, collection,addDoc, onAuthStateChanged, query, where, onSnapshot, doc, deleteDoc } 
 from "./firebase.js";
 
+
+let currentUser = null; 
 const tableBody = document.querySelector("tbody");
 const monthInput = document.getElementById("monthFilter");
 const sortInput = document.querySelector(".sortby");
@@ -12,6 +14,7 @@ let allExpenses = [];
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
+        currentUser = user;
         console.log("Loading History for:", user.displayName);
         loadHistory(user);
         const welcomeText = document.querySelector(".welcomeText");
@@ -135,3 +138,65 @@ resetBtn.addEventListener("click", () => {
     sortInput.value = "sort";  
     filterAndRender();         
 });
+// 2. Income Button Logic
+const incomeBtn = document.querySelector(".popsubtn");
+if (incomeBtn) {
+    incomeBtn.addEventListener("click", async () => {
+        const amount = document.getElementById("incomeval").value;
+        const desc = document.querySelector(".idestext").value;
+        const date = document.querySelector(".idate").value;
+
+        if(!amount || !date){
+            alert("Please enter Amount and Date");
+            return;
+        }
+
+        try {
+            await addDoc(collection(db, "expenses"), {
+                uid: currentUser.uid,
+                type: "income",
+                amount: Number(amount),
+                description: desc,
+                category:"income",
+                date: date,
+                createdAt: new Date()
+            });
+            alert("Income Added!");
+            location.reload(); 
+        } catch (error) {
+            console.error("Error adding income: ", error);
+            alert("Error: " + error.message);
+        }
+    });
+}
+const expenseBtn = document.querySelector(".popsubtn2");
+if (expenseBtn) {
+    expenseBtn.addEventListener("click", async () => {
+        const amount = document.getElementById("expenseval").value;
+        const desc = document.querySelector(".edestext").value;
+        const category = document.querySelector(".category").value;
+        const date = document.querySelector(".edate").value;
+
+        if(!amount || !date){
+            alert("Please enter Amount and Date");
+            return;
+        }
+
+        try {
+            await addDoc(collection(db, "expenses"), {
+                uid: currentUser.uid,
+                type: "expense",
+                amount: Number(amount),
+                description: desc,
+                category: category,
+                date: date,
+                createdAt: new Date()
+            });
+            alert("Expense Added!");
+            location.reload(); 
+        } catch (error) {
+            console.error("Error adding expense: ", error);
+            alert("Error: " + error.message);
+        }
+    });
+}
