@@ -1,0 +1,272 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+     background: #f5f6fa;
+}
+.nav-section{
+    display: flex;
+    gap: 5em;
+    background-color: #3f51b5;
+    border-bottom: 1vmin solid green ;
+    height: 6em;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    
+}
+.logoimg{
+    height: 6vmin;
+    width: 19vmin;
+    border-radius: 5vmin;
+}
+.nav-element{
+    display: flex;
+    gap: 1.5rem;
+}
+.nav-element a{
+    text-decoration: none;
+    padding: 2em;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: aliceblue;
+}
+.user-section{
+    display: flex;
+    gap: 1vmin;
+    align-items: center;
+}
+.userLbtn{
+    background-color: #0cf7ff;
+    height: 3em;
+    width: 3em;
+   border-radius: 50%;
+   border: none;
+   cursor: pointer;
+   color: #0131f1;
+   font-weight: 800;
+   font-size: 1em;
+}
+
+.modebtn{
+    width: 5em;
+    height: 2em;
+    border-radius: 5vmin;
+    font-size: 1em;
+    cursor: pointer;
+}
+.modeDL{
+    background-color: black;
+
+}
+.dmtext{
+    color:white;
+}
+.text1{
+    display: block;
+    font-weight: 900;
+    font-size: 3vmin;
+    margin: 0.7vmin;
+}
+.btntext{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 2em;
+}
+.hamburger{
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.mobile-nav{
+    display: none;
+    flex-direction: column;
+    background: #3f51b5;
+    padding: 1rem;
+}
+
+
+.overlay{
+   display: none;
+} 
+.overlay1{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.popup{
+
+    background: #ffffff;
+    min-width: 55vmin;
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.25);
+    position:fixed;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            
+}
+
+
+.closebtn{
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* .nodisplay{
+    display: none;
+} */
+
+.textp,.textp2{
+    padding: 1.5rem;
+}
+
+.textp h4{
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.textp p{
+    margin: 0.8rem 0 0.3rem;
+    font-size: 0.9rem;
+}
+
+.textp2 h4{
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.textp2 p{
+    margin: 0.8rem 0 0.3rem;
+    font-size: 0.9rem;
+}
+
+
+
+input{
+    width: 95%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.6rem;
+    border: 0.08rem solid #ccc;
+    font-size: 0.9rem;
+}
+
+input:focus{
+    border-color: #4f46e5;
+    outline: none;
+}
+
+.popsubtn3{
+    margin-top: 1.2rem;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 0.6rem;
+    border: none;
+    background: #4f46e5;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.popsubtn3:hover{
+    background: #4338ca;
+}
+
+
+.mobile-nav a{
+    color: white;
+    text-decoration: none;
+    padding: .8rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+  .showdtl{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    
+}
+
+.remainig ,.incomedtl,.budgetdtl{
+    border: .2vmin solid green;
+    min-height: 9em;
+    width: 30vmin;
+    display: grid;
+    grid-template-rows: auto 1fr auto;;
+    border-radius: 1rem;
+    padding: 1rem;
+
+}
+.budgetText{
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 2em;
+}
+.intext{
+    margin-left: 1vmin;
+   
+}
+.remainig{
+    color: blue;
+    font-size: 0.9em;
+}
+.incomedtl{
+    color: green;
+    font-size: 0.9em;
+}
+.budgetdtl{
+    color: blue;
+    font-size: 0.9em;
+   
+}
+.budgetchart{
+    height: 12em;
+    border: 1vmin solid black;
+}
+.rmoney,.imoney,.bmoney{
+    font-size: 3.3rem;
+     margin-top: 1vmin;
+}
+   
+
+
+@media (max-width: 768px){
+    .nav-element{
+        display: none; 
+    }
+    
+        .hamburger{
+        display: block; /* show hamburger */
+    }
+
+    .mobile-nav.active{
+        display: flex;
+    }
+        .popup{
+        width: 92vw;
+    }
+
+    .textp{
+        padding: 1.2rem;
+    }
+     
+}
