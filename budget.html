@@ -46,17 +46,35 @@
                 <div class="imoney intex mitext">000</div>
                 
             </div>
-            <div class="budgetdtl">
+           <button class="budgetbtn"> <div class="budgetdtl">
                 <div class="text4 intext">budget</div>
                 <div class="bmoney intext mitext">000</div>
-                
-            </div>
+                </button>
+            
             <div class="remainig">
                 <div class="text2 intext">remaing</div>
                 <div class="rmoney intext mitext">000</div>
                 
             </div>
-        </div>
+            </div>
+        
 </main>
+            <div class="overlay">
+    <div class="popup">
+        <button class="closebtn">&times;</button>
+
+        <div class="textp nodisplay">
+            <h4>change budget for this month</h4>
+
+            <p>Amount</p>
+            <input type="number" placeholder="Enter amount" id="updateval">
+
+            <button class="updatebtn">update budget</button>
+        </div>
+<script src="navbar.js"></script>
+<script src="budget.js"></script>
+<script src="firebase.js" type="module"></script>
+<script src="budget_db.js" type="module"></script>
+
 </body>
 </html>

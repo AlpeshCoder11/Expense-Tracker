@@ -170,19 +170,19 @@ input:focus{
     outline: none;
 }
 
-.popsubtn3{
+.updatebtn{
     margin-top: 1.2rem;
     width: 100%;
     padding: 0.7rem;
     border-radius: 0.6rem;
     border: none;
-    background: #4f46e5;
+    background: #2ec006;
     color: #ffffff;
     font-size: 1rem;
     cursor: pointer;
 }
 
-.popsubtn3:hover{
+.updatebtn:hover{
     background: #4338ca;
 }
 
@@ -203,16 +203,31 @@ input:focus{
     
 }
 
-.remainig ,.incomedtl,.budgetdtl{
+.remainig ,.incomedtl{
     border: .2vmin solid green;
     min-height: 9em;
-    width: 30vmin;
+   
     display: grid;
     grid-template-rows: auto 1fr auto;;
     border-radius: 1rem;
     padding: 1rem;
+    justify-items: center; 
+    
+    align-items: center;
+    text-align: center;
 
 }
+.budgetbtn{
+    border: .2vmin solid green;
+    min-height: 9em;
+   width: 100%;        
+    text-align: center;
+ 
+    border-radius: 1rem;
+    padding: 1rem;
+
+}
+
 .budgetText{
     height: 2em;
     display: flex;
@@ -221,9 +236,11 @@ input:focus{
     font-weight: 900;
     font-size: 2em;
 }
-.intext{
-    margin-left: 1vmin;
-   
+.intext {
+    margin-left: 0;       
+    text-align: center;
+       
+    width: 100%;          
 }
 .remainig{
     color: blue;
@@ -240,7 +257,7 @@ input:focus{
 }
 .budgetchart{
     height: 12em;
-    border: 1vmin solid black;
+    border: 1vmin solid rgb(82, 240, 64);
 }
 .rmoney,.imoney,.bmoney{
     font-size: 3.3rem;
