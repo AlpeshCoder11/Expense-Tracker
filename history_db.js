@@ -53,8 +53,6 @@ onSnapshot(q, (snapshot) => {
         filterAndRender(); 
     });
 }
-
-
 function filterAndRender() {
     let filteredData = [...allExpenses]; 
 
@@ -86,7 +84,8 @@ function filterAndRender() {
 
 function renderTable(dataList) {
     tableBody.innerHTML = "";
-
+    
+  
     if (dataList.length === 0) {
         tableBody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>No transactions found.</td></tr>";
         return;
@@ -208,6 +207,4 @@ if (expenseBtn) {
             alert("Error: " + error.message);
         }
     });
-
 }
-
