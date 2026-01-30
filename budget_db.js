@@ -86,7 +86,7 @@ if (updateBtn) {
 
             if (!querySnapshot.empty) {
              
-                const docId = querySnapshot.docs[0].id; /
+                const docId = querySnapshot.docs[0].id; 
                 const budgetRef = doc(db, "expenses", docId);
                 
                 await updateDoc(budgetRef, {
@@ -116,4 +116,5 @@ if (updateBtn) {
             alert("Error: " + error.message);
         }
     });
+
 }
