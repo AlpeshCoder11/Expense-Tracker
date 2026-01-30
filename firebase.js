@@ -4,7 +4,7 @@
 // FIXED: All versions are now 10.8.0
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 
-import { getFirestore, collection, addDoc, query, where, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, query, where, onSnapshot, deleteDoc, doc,getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 // ... Keep the rest of your code the same (const firebaseConfig = ...)
   // Your web app's Firebase configuration
@@ -58,4 +58,4 @@ window.loginGoogle = loginGoogle;
 window.logoutUser = logoutUser;
 
 // 6. Export tools for other files
-export { auth, db, onAuthStateChanged, collection, addDoc, query, where, onSnapshot, deleteDoc, doc };
+export { auth, db, onAuthStateChanged, collection, addDoc, query, where, onSnapshot ,getDocs , doc, updateDoc, deleteDoc};

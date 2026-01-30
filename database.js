@@ -1,20 +1,22 @@
-// database.js
+
 import { auth, db, collection, addDoc, onAuthStateChanged, query, where, onSnapshot } from "./firebase.js";
 
-let currentUser = null; // To store the logged-in user
+let currentUser = null; 
 
-// 1. Watch Auth State (Check if user is logged in)
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
         currentUser = user;
         console.log("Logged in as:", user.displayName);
-        
-        // Update Welcome Text
+    
         const welcomeText = document.querySelector(".welcomeText");
         if(welcomeText) welcomeText.innerText = "Welcome, " + user.displayName;
 
+        const userLbtn=document.querySelector(".userLbtn");
+        const logoName=user.displayName;
+        userLbtn.innerText=logoName.charAt(0);
 
-        //user data import
+    
         const q= query(collection(db,"expenses"),where("uid","==",user.uid));
         onSnapshot(q,(snapshot)=>{
             let totalIncome=0;
@@ -30,7 +32,6 @@ onAuthStateChanged(auth, (user) => {
                 }
             });
 
-            // 5. Update the Screen
             const remaining = totalIncome - totalExpense;
 
             document.querySelector(".imoney").innerText = totalIncome;
@@ -40,18 +41,19 @@ onAuthStateChanged(auth, (user) => {
             console.log("Updated Dashboard!");
         });
     } else {
-        // If not logged in, go back to login page
+      
         window.location.href = "login.html";
     }
 });
 
-// 2. Income Button Logic
+
 const incomeBtn = document.querySelector(".popsubtn");
 if (incomeBtn) {
     incomeBtn.addEventListener("click", async () => {
         const amount = document.getElementById("incomeval").value;
         const desc = document.querySelector(".idestext").value;
         const date = document.querySelector(".idate").value;
+        const month = date.slice(0, 7);
 
         if(!amount || !date){
             alert("Please enter Amount and Date");
@@ -66,9 +68,11 @@ if (incomeBtn) {
                 description: desc,
                 category:"income",
                 date: date,
+                month: month, 
+               
                 createdAt: new Date()
             });
-            alert("Income Added!");
+           
             location.reload(); 
         } catch (error) {
             console.error("Error adding income: ", error);
@@ -77,7 +81,7 @@ if (incomeBtn) {
     });
 }
 
-// 3. Expense Button Logic
+
 const expenseBtn = document.querySelector(".popsubtn2");
 if (expenseBtn) {
     expenseBtn.addEventListener("click", async () => {
@@ -85,6 +89,7 @@ if (expenseBtn) {
         const desc = document.querySelector(".edestext").value;
         const category = document.querySelector(".category").value;
         const date = document.querySelector(".edate").value;
+        const month = date.slice(0, 7);
 
         if(!amount || !date){
             alert("Please enter Amount and Date");
@@ -99,6 +104,7 @@ if (expenseBtn) {
                 description: desc,
                 category: category,
                 date: date,
+                month: month, 
                 createdAt: new Date()
             });
             alert("Expense Added!");

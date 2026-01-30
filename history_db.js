@@ -85,6 +85,9 @@ function renderTable(dataList) {
         tableBody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>No transactions found.</td></tr>";
         return;
     }
+    if (data.type === "budget") {
+        return; 
+    }
 
     dataList.forEach((data) => {
         const color = data.type === "income" ? "green" : "red";
@@ -145,6 +148,7 @@ if (incomeBtn) {
         const amount = document.getElementById("incomeval").value;
         const desc = document.querySelector(".idestext").value;
         const date = document.querySelector(".idate").value;
+        const month = date.slice(0, 7);
 
         if(!amount || !date){
             alert("Please enter Amount and Date");
@@ -159,6 +163,7 @@ if (incomeBtn) {
                 description: desc,
                 category:"income",
                 date: date,
+                month: month, 
                 createdAt: new Date()
             });
             alert("Income Added!");
@@ -176,7 +181,7 @@ if (expenseBtn) {
         const desc = document.querySelector(".edestext").value;
         const category = document.querySelector(".category").value;
         const date = document.querySelector(".edate").value;
-
+        const month = date.slice(0, 7);
         if(!amount || !date){
             alert("Please enter Amount and Date");
             return;
@@ -190,6 +195,7 @@ if (expenseBtn) {
                 description: desc,
                 category: category,
                 date: date,
+                month: month, 
                 createdAt: new Date()
             });
             alert("Expense Added!");

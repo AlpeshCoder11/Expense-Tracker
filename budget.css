@@ -194,6 +194,13 @@ input:focus{
     font-size: 1.1rem;
     border-bottom: 1px solid rgba(255,255,255,.2);
 }
+.month{
+    width: 13em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      margin: 1.5rem auto; 
+}
 
   .showdtl{
     display: grid;
