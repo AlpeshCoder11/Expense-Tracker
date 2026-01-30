@@ -32,17 +32,23 @@ onAuthStateChanged(auth, (user) => {
 function loadHistory(user) {
     const q = query(collection(db, "expenses"), where("uid", "==", user.uid));
 
-    onSnapshot(q, (snapshot) => {
+onSnapshot(q, (snapshot) => {
         allExpenses = []; 
 
         snapshot.forEach((docSnapshot) => {
+            const data = docSnapshot.data();
+            
            
+            if (data.type === "budget") {
+                return; 
+            }
+          
+
             allExpenses.push({
                 id: docSnapshot.id,
-                ...docSnapshot.data()
+                ...data
             });
         });
-
     
         filterAndRender(); 
     });
@@ -205,4 +211,5 @@ if (expenseBtn) {
             alert("Error: " + error.message);
         }
     });
+
 }
