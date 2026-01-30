@@ -91,9 +91,6 @@ function renderTable(dataList) {
         tableBody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>No transactions found.</td></tr>";
         return;
     }
-    if (data.type === "budget") {
-        return; 
-    }
 
     dataList.forEach((data) => {
         const color = data.type === "income" ? "green" : "red";
@@ -213,3 +210,4 @@ if (expenseBtn) {
     });
 
 }
+
