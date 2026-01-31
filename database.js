@@ -1,8 +1,7 @@
-
 import { auth, db, collection, addDoc, onAuthStateChanged, query, where, onSnapshot } from "./firebase.js";
 
 let currentUser = null; 
-
+let myChart = null; 
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -12,41 +11,111 @@ onAuthStateChanged(auth, (user) => {
         const welcomeText = document.querySelector(".welcomeText");
         if(welcomeText) welcomeText.innerText = "Welcome, " + user.displayName;
 
-        const userLbtn=document.querySelector(".userLbtn");
-        const logoName=user.displayName;
-        userLbtn.innerText=logoName.charAt(0);
+        const userLbtn = document.querySelector(".userLbtn");
+        const logoName = user.displayName;
+        if(userLbtn) userLbtn.innerText = logoName.charAt(0);
 
     
-        const q= query(collection(db,"expenses"),where("uid","==",user.uid));
-        onSnapshot(q,(snapshot)=>{
-            let totalIncome=0;
-            let totalExpense=0;
+        const q = query(collection(db,"expenses"), where("uid","==",user.uid));
+        
+        onSnapshot(q, (snapshot) => {
+            let totalIncome = 0;
+            let totalExpense = 0;
+            
+          
+            let categoryTotals = {
+                "food": 0,
+                "bills": 0,
+                "education": 0,
+                "entertainment": 0,
+                "other": 0
+            };
+
             snapshot.forEach((doc) => {
                 const data = doc.data();
-                
+                const amount = Number(data.amount);
                
                 if (data.type === "income") {
-                    totalIncome += Number(data.amount);
+                    totalIncome += amount;
                 } else if (data.type === "expense") {
-                    totalExpense += Number(data.amount);
+                    totalExpense += amount;
+                    
+                    
+                    
+                    const cat = data.category ? data.category.toLowerCase() : "other";
+                    
+                    if (categoryTotals[cat] !== undefined) {
+                        categoryTotals[cat] += amount;
+                    } else {
+                        
+                        categoryTotals["other"] += amount;
+                    }
                 }
             });
 
             const remaining = totalIncome - totalExpense;
 
+            // DOM Updates
             document.querySelector(".imoney").innerText = totalIncome;
             document.querySelector(".emoney").innerText = totalExpense;
             document.querySelector(".rmoney").innerText = remaining;
             
-            console.log("Updated Dashboard!");
+            console.log("Updated Dashboard with Category Data!");
+
+            // --- CHART JS LOGIC START ---
+            const ctx = document.getElementById('myChart');
+
+            if (ctx) {
+                // Agar purana chart hai to destroy karo (Nahi to glitch hoga)
+                if (myChart) {
+                    myChart.destroy();
+                }
+
+               
+                const chartLabels = Object.keys(categoryTotals); 
+                const chartValues = Object.values(categoryTotals); 
+
+                myChart = new Chart(ctx, {
+                    type: 'doughnut', 
+                    data: {
+                        labels: chartLabels, 
+                        datasets: [{
+                            label: 'Expense by Category (₹)',
+                            data: chartValues, 
+                            backgroundColor: [
+                                '#FF6384', 
+                                '#36A2EB', 
+                                '#FFCE56', 
+                                '#4BC0C0', 
+                                '#9966FF'  
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right', 
+                            },
+                            title: {
+                                display: true,
+                                text: 'Where is my money going?'
+                            }
+                        }
+                    }
+                });
+            }
+            // --- CHART JS LOGIC END ---
+
         });
     } else {
-      
         window.location.href = "login.html";
     }
 });
 
-
+// --- NICHE KA CODE SAME HAI (ADD BUTTONS) ---
 const incomeBtn = document.querySelector(".popsubtn");
 if (incomeBtn) {
     incomeBtn.addEventListener("click", async () => {
@@ -69,7 +138,6 @@ if (incomeBtn) {
                 category:"income",
                 date: date,
                 month: month, 
-               
                 createdAt: new Date()
             });
            
@@ -87,7 +155,7 @@ if (expenseBtn) {
     expenseBtn.addEventListener("click", async () => {
         const amount = document.getElementById("expenseval").value;
         const desc = document.querySelector(".edestext").value;
-        const category = document.querySelector(".category").value;
+        const category = document.querySelector(".category").value; // Ye dropdown se value lega
         const date = document.querySelector(".edate").value;
         const month = date.slice(0, 7);
 
@@ -102,7 +170,7 @@ if (expenseBtn) {
                 type: "expense",
                 amount: Number(amount),
                 description: desc,
-                category: category,
+                category: category, // Yahan category save ho rahi hai
                 date: date,
                 month: month, 
                 createdAt: new Date()

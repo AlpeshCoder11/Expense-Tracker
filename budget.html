@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>budget</title>
     <link rel="stylesheet" href="budget.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -39,7 +40,9 @@
     <div class="month"><input type="month" id="monthInput">
 </div>
     <div class="budgetText">BUDGET</div>
-    <div class="budgetchart"></div>
+    <div class="budgetchart">
+        <canvas id="myChart"></canvas>
+    </div>
             <div class="showdtl">
             
             <div class="incomedtl">
@@ -74,6 +77,7 @@
         </div>
 <script src="navbar.js"></script>
 <script src="budget.js"></script>
+
 <script src="firebase.js" type="module"></script>
 <script src="budget_db.js" type="module"></script>
 
