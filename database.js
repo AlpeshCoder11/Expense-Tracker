@@ -14,9 +14,30 @@ onAuthStateChanged(auth, (user) => {
         const userLbtn = document.querySelector(".userLbtn");
         const logoName = user.displayName;
         if(userLbtn) userLbtn.innerText = logoName.charAt(0);
+        const startDateInput = document.getElementById('start-date');
+        const endDateInput = document.getElementById('end-date');
+        
 
-    
-        const q = query(collection(db,"expenses"), where("uid","==",user.uid));
+
+        startDateInput.addEventListener('change', () => {
+        endDateInput.min = startDateInput.value;
+        if (endDateInput.value && endDateInput.value < startDateInput.value) {
+            endDateInput.value = startDateInput.value;
+        }});
+
+
+
+    const updateDashboard = (start, end) => {
+        let q = query(collection(db,"expenses"), where("uid","==",user.uid));
+        if (start && end) {
+                // Firebase tip: You can use 'where' for dates if stored as strings "YYYY-MM-DD"
+                q = query(
+                    collection(db, "expenses"),
+                    where("uid", "==", user.uid),
+                    where("date", ">=", start),
+                    where("date", "<=", end)
+                );
+            }
         
         onSnapshot(q, (snapshot) => {
             let totalIncome = 0;
@@ -61,7 +82,7 @@ onAuthStateChanged(auth, (user) => {
             document.querySelector(".rmoney").innerText = remaining;
             
             console.log("Updated Dashboard with Category Data!");
-
+        
             // --- CHART JS LOGIC START ---
             const ctx = document.getElementById('myChart');
 
@@ -107,9 +128,27 @@ onAuthStateChanged(auth, (user) => {
                     }
                 });
             }
+        
             // --- CHART JS LOGIC END ---
 
-        });
+        });}
+        const handleDateChange = () => {
+            const start = startDateInput.value;
+            const end = endDateInput.value;
+            
+            // Sync min/max logic
+            endDateInput.min = start;
+            if (end && end < start) endDateInput.value = start;
+
+            if (start && end) {
+                updateDashboard(start, end);
+            }
+        };
+        startDateInput.addEventListener('change', handleDateChange);
+        endDateInput.addEventListener('change', handleDateChange);
+
+        // Initial load (Show everything)
+        updateDashboard();
     } else {
         window.location.href = "login.html";
     }
