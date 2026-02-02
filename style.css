@@ -59,8 +59,12 @@ body{
 .modeDL{
     background-color: black;
 
+
 }
-.dmtext{
+
+
+
+body.modeDL .textDM {
     color:white;
 }
 .text1{
@@ -107,6 +111,52 @@ body{
 .datashow{
     display: block;
 }
+.date-range-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem; 
+  font-family: sans-serif;
+  background: #f4f4f9;
+  padding: 1.25rem; 
+  border-radius: 0.5rem; 
+  width: fit-content;
+  margin: 1.5em;
+}
+body.modeDL .date-range-container{
+    background: #555;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.75rem; 
+  font-weight: bold;
+  margin-bottom: 0.3125rem; 
+  color: #555;
+}
+
+input[type="date"] {
+  
+  padding: 0.5em; 
+  border: 0.0625rem solid #ccc; 
+  border-radius: 0.25rem; 
+  outline: none;
+  font-size: 1rem;
+}
+
+input[type="date"]:focus {
+  border-color: #007bff;
+}
+
+.separator {
+  
+  margin-top: 1.25em; 
+  font-weight: bold;
+  color: #999;
+}
 .showdtl{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -118,7 +168,7 @@ body{
 .remainig ,.incomedtl,.expensedtl{
     border: .2vmin solid green;
     min-height: 9em;
-    width: 30vmin;
+ 
     display: grid;
     grid-template-rows: auto 1fr auto;;
     border-radius: 1rem;

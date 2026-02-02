@@ -56,7 +56,7 @@ body{
     font-size: 1em;
     cursor: pointer;
 }
-.modeDL{
+body.modeDL{
     background-color: black;
 
 }
@@ -234,6 +234,10 @@ input:focus{
     padding: 1rem;
 
 }
+body.modeDL .budgetbtn{
+    background-color: #000000;
+
+}
 
 .budgetText{
     height: 2em;
@@ -242,6 +246,9 @@ input:focus{
     align-items: center;
     font-weight: 900;
     font-size: 2em;
+}
+body.modeDL .budgetText{
+    color: #f5f6fa;
 }
 .intext {
     margin-left: 0;       
@@ -264,7 +271,9 @@ input:focus{
 }
 .budgetchart{
     height: 12em;
-    border: 1vmin solid rgb(82, 240, 64);
+    border: .2vmin solid green;
+    border-radius: 0.6rem;
+    margin: 1.4em;
 }
 .rmoney,.imoney,.bmoney{
     font-size: 3.3rem;

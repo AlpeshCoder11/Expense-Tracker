@@ -62,6 +62,30 @@ body{
 .dmtext{
     color:white;
 }
+body.modeDL{
+    background: #121212;
+    color: #ffffff;
+}
+
+body.modeDL .nav-section{
+    background: #1e1e1e;
+}
+
+body.modeDL table{
+    background: #1e1e1e;
+    color: white;
+}
+
+body.modeDL th{
+    background: #2e7d32;
+}
+
+body.modeDL input,
+body.modeDL select{
+    background: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+}
 .text1{
     display: block;
     font-weight: 900;
@@ -270,6 +294,17 @@ input:focus{
     tbody tr:nth-child(even) {
         background-color: #f9f9f9;
     }
+body.modeDL tbody tr:hover {
+    background-color: #715151;
+}
+
+body.modeDL tbody tr:nth-child(even) {
+    background-color: #5d3e3e;
+}
+
+
+
+    
     .deletbtn {
   background: #ff4742;
   border: 1px solid #ff4742;
