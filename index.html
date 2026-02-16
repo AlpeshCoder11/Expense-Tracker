@@ -24,9 +24,14 @@
                 <a href="history.html">History</a>
             </div>
             <div class="user-section">
-                <button class="modebtn">mode</button>
-                <button class="userLbtn">A</button>
-            </div>
+    <button class="modebtn">mode</button>
+    <div class="profile-container">
+        <button class="userLbtn">A</button>
+        <div class="dropdown-menu" id="logoutDropdown">
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+</div>
             </div>
         </nav>
         <div class="mobile-nav" id="mobileNav">
@@ -130,7 +135,7 @@
 
 
 <script src="add.js"></script>
-<script src="navbar.js"></script>
+<script type="module" src="navbar.js"></script>
 <script type="module" src="database.js"></script>
 
 

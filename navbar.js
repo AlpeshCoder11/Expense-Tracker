@@ -1,3 +1,6 @@
+import { auth } from "./firebase.js";
+import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
 const hamburger = document.querySelector("#hamburger");
 const mobileNav = document.querySelector("#mobileNav");
 const modebtn = document.querySelector(".modebtn");
@@ -35,3 +38,31 @@ window.addEventListener("load", () => {
     }
 });
 
+const userBtn = document.querySelector('.userLbtn');
+const logoutDropdown = document.getElementById('logoutDropdown');
+const logoutBtn = document.getElementById('logoutBtn');
+
+// Toggle dropdown when clicking the 'A' button
+userBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevents the window click listener from firing
+    logoutDropdown.classList.toggle('active');
+});
+
+
+window.addEventListener('click', () => {
+    if (logoutDropdown.classList.contains('active')) {
+        logoutDropdown.classList.remove('active');
+    }
+});
+
+
+
+
+logoutBtn.addEventListener('click', () => {
+    signOut(auth).then(() => {
+        console.log("User signed out");
+        window.location.href = "login.html"; 
+    }).catch((error) => {
+        console.error("Sign out error:", error);
+    });
+});

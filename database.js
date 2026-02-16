@@ -30,7 +30,7 @@ onAuthStateChanged(auth, (user) => {
     const updateDashboard = (start, end) => {
         let q = query(collection(db,"expenses"), where("uid","==",user.uid));
         if (start && end) {
-                // Firebase tip: You can use 'where' for dates if stored as strings "YYYY-MM-DD"
+                
                 q = query(
                     collection(db, "expenses"),
                     where("uid", "==", user.uid),
@@ -76,18 +76,18 @@ onAuthStateChanged(auth, (user) => {
 
             const remaining = totalIncome - totalExpense;
 
-            // DOM Updates
+       
             document.querySelector(".imoney").innerText = totalIncome;
             document.querySelector(".emoney").innerText = totalExpense;
             document.querySelector(".rmoney").innerText = remaining;
             
             console.log("Updated Dashboard with Category Data!");
         
-            // --- CHART JS LOGIC START ---
+           
             const ctx = document.getElementById('myChart');
 
             if (ctx) {
-                // Agar purana chart hai to destroy karo (Nahi to glitch hoga)
+               
                 if (myChart) {
                     myChart.destroy();
                 }
@@ -129,14 +129,14 @@ onAuthStateChanged(auth, (user) => {
                 });
             }
         
-            // --- CHART JS LOGIC END ---
+           
 
         });}
         const handleDateChange = () => {
             const start = startDateInput.value;
             const end = endDateInput.value;
             
-            // Sync min/max logic
+          
             endDateInput.min = start;
             if (end && end < start) endDateInput.value = start;
 
@@ -147,14 +147,14 @@ onAuthStateChanged(auth, (user) => {
         startDateInput.addEventListener('change', handleDateChange);
         endDateInput.addEventListener('change', handleDateChange);
 
-        // Initial load (Show everything)
+
         updateDashboard();
     } else {
         window.location.href = "login.html";
     }
 });
 
-// --- NICHE KA CODE SAME HAI (ADD BUTTONS) ---
+
 const incomeBtn = document.querySelector(".popsubtn");
 if (incomeBtn) {
     incomeBtn.addEventListener("click", async () => {
@@ -194,7 +194,7 @@ if (expenseBtn) {
     expenseBtn.addEventListener("click", async () => {
         const amount = document.getElementById("expenseval").value;
         const desc = document.querySelector(".edestext").value;
-        const category = document.querySelector(".category").value; // Ye dropdown se value lega
+        const category = document.querySelector(".category").value;
         const date = document.querySelector(".edate").value;
         const month = date.slice(0, 7);
 
@@ -209,7 +209,7 @@ if (expenseBtn) {
                 type: "expense",
                 amount: Number(amount),
                 description: desc,
-                category: category, // Yahan category save ho rahi hai
+                category: category, 
                 date: date,
                 month: month, 
                 createdAt: new Date()

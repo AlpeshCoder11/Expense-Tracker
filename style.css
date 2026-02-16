@@ -5,16 +5,28 @@
 body{
      background: #f5f6fa;
 }
-.nav-section{
+
+nav {
+    background-color: #3f51b5;  
+    border-bottom: 1vmin solid green; 
+    width: 100%; 
+    min-width: 100%;
+}
+
+
+.nav-section {
     display: flex;
-    gap: 5em;
-    background-color: #3f51b5;
-    border-bottom: 1vmin solid green ;
+   
+    gap: 1rem; 
+    
+   
+    
     height: 6em;
     align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
-    
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 .logoimg{
     height: 6vmin;
@@ -47,6 +59,61 @@ body{
    color: #0131f1;
    font-weight: 800;
    font-size: 1em;
+}
+/* Container for relative positioning */
+.profile-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    right: 0;
+    top: 110%; 
+    background-color: #ffffff;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.15);
+    z-index: 1001;
+    min-width: 7.5rem;
+    overflow: hidden;
+}
+
+body.modeDL .dropdown-menu {
+    background-color: #333;
+    border-color: #555;
+}
+
+.dropdown-menu.active {
+    display: block;
+}
+
+
+#logoutBtn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    transition: background 0.2s;
+}
+
+body.modeDL #logoutBtn {
+    color: white;
+}
+
+#logoutBtn:hover {
+    background-color: #f0f0f0;
+    color: red; 
+}
+
+body.modeDL #logoutBtn:hover {
+    background-color: #444;
 }
 
 .modebtn{
@@ -274,9 +341,6 @@ input[type="date"]:focus {
     border: none;
     cursor: pointer;
 }
-/* .nodisplay{
-    display: none;
-} */
 
 .textp,.textp2{
     padding: 1.5rem;
