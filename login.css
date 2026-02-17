@@ -1,0 +1,191 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            color: #333;
+        }
+
+      
+        nav {
+            background: #3f51b5;
+            border-bottom: 0.3rem solid green;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo img {
+            height: 3rem;
+            width: 9rem;
+            border-radius: 0.5rem;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background: #3f51b5;
+            padding: 0.5rem 2rem 1rem;
+            gap: 0.8rem;
+        }
+
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            border-bottom: 0.06rem solid rgba(255,255,255,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .mobile-nav.open {
+            display: flex;
+        }
+
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            background: white;
+            border-bottom: 0.1rem solid #ddd;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: #3f51b5;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 40rem;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-btn {
+            background: #3f51b5;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            background: #2c3e9e;
+        }
+
+     
+        .section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #3f51b5;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #777;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        
+        #features {
+            padding: 3rem 2rem;
+            max-width: 70rem;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+            gap: 1.2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border: 0.1rem solid #ddd;
+            border-radius: 0.6rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            border-color: #3f51b5;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.88rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+   
+
+        @media (max-width: 600px) {
+            .nav-links  { display: none; }
+            .hamburger  { display: block; }
+            .navbar     { padding: 0.8rem 1.2rem; }
+        }

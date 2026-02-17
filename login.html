@@ -3,47 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Expense Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f5f6fa;
-            flex-direction: column;
-        }
-        .login-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        button {
-            background-color: #4285F4; /* Google Blue */
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        button:hover { background-color: #357ae8; }
-    </style>
+    <title>Expense Tracker</title>
+   <link rel="stylesheet" href="login.css">
 </head>
 <body>
 
-    <div class="login-card">
-        <h2>Welcome to Expense Tracker</h2>
-        <p>Please sign in to save your data.</p>
-        <button onclick="loginGoogle()">Sign in with Google</button>
-    </div>
 
-    <script type="module" src="firebase.js"></script>
+<nav>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.jpeg" alt="logo">
+            <span class="logo-text">Expense Tracker</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#howitwork">How It Works</a></li>
+            <li><a href="#screenshot">Preview</a></li>
+            <li><a href="#contactus">Sign In</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">☰</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#features">Features</a>
+        <a href="#howitwork">How It Works</a>
+        <a href="#screenshot">Preview</a>
+        <a href="#contactus">Sign In</a>
+    </div>
+</nav>
+
+
+<div class="hero">
+    <h1>Track Your Money.<br>Stay in Control.</h1>
+    <p>A simple expense tracker to manage your income, expenses, and monthly budget — all in one place.</p>
+    <a href="javascript:void(0)" onclick="loginGoogle()" class="hero-btn">Get Started Free</a>
+</div>
+
+
+<section id="features">
+    <h2 class="section-title">Features</h2>
+    <p class="section-sub">Everything you need to manage your money simply.</p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Dashboard</h3>
+            <p>See income, expenses, and balance at a glance. Filter by date range.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Income Tracking</h3>
+            <p>Log all your income sources with date and description.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🛒</div>
+            <h3>Expense Categories</h3>
+            <p>Organise spending into Food, Bills, Education, Entertainment and more.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Monthly Budget</h3>
+            <p>Set a monthly budget and track how much you have left with a chart.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Transaction History</h3>
+            <p>Filter, sort, and delete your full transaction history easily.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌙</div>
+            <h3>Dark Mode</h3>
+            <p>Switch between light and dark mode. Your preference is saved.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Friendly</h3>
+            <p>Works on phone, tablet, and desktop — no app download needed.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">☁️</div>
+            <h3>Cloud Sync</h3>
+            <p>Data saved to Firebase and synced across all your devices in real time.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Google Sign-In</h3>
+            <p>One-click secure login with your Google account. No password needed.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+        document.getElementById('mobileNav').classList.toggle('open');
+    });
    
 
+</script>
+<script type="module" src="firebase.js"></script>
 </body>
 </html>
