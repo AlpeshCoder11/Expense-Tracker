@@ -182,7 +182,95 @@
             line-height: 1.5;
         }
 
-   
+     #howitwork {
+            background: #eef0fb;
+            padding: 3rem 2rem;
+            border-top: 0.1rem solid #ddd;
+            border-bottom: 0.1rem solid #ddd;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+            gap: 1.2rem;
+            max-width: 70rem;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            background: white;
+            border: 0.1rem solid #ddd;
+            border-radius: 0.6rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .step-num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #3f51b5;
+            margin-bottom: 0.6rem;
+        }
+
+        .step-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .step-card p {
+            font-size: 0.88rem;
+            color: #777;
+            line-height: 1.5;
+        }
+         #screenshot {
+            padding: 3rem 2rem;
+            max-width: 70rem;
+            margin: 0 auto;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax( 1fr));
+            gap: 1.2rem;
+        }
+       
+        .screenshot-card {
+            background: white;
+            border: 0.1rem solid #ddd;
+            border-radius: 0.6rem;
+            overflow: hidden;
+        }
+
+        .screenshot-header {
+            background: #3f51b5;
+            color: white;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .screenshot-body {
+            padding: 1.2rem;
+                aspect-ratio: 16 / 9; 
+    
+
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    
+        }
+  
+.history{
+    background-image: url('historypage.jpg');
+}
+.dashboard{
+    background-image: url('dashboardpage.jpg');
+}
+.budget{
+    background-image: url('budgetpage.jpg');
+}
+
 
         @media (max-width: 600px) {
             .nav-links  { display: none; }
