@@ -270,7 +270,78 @@
 .budget{
     background-image: url('budgetpage.jpg');
 }
+ #contactus {
+            background: #eef0fb;
+            padding: 3rem 2rem;
+            border-top: 0.1rem solid #ddd;
+        }
 
+        .login-card {
+            background: white;
+            border: 0.1rem solid #ddd;
+            border-radius: 0.8rem;
+            padding: 2.5rem;
+            max-width: 24rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .login-card h2 {
+            font-size: 1.4rem;
+            color: #3f51b5;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-card p {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            width: 100%;
+            background: #3f51b5;
+            color: white;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .google-btn:hover {
+            background: #2c3e9e;
+        }
+
+        .login-note {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+   footer {
+            background: #3f51b5;
+            color: white;
+            text-align: center;
+            padding: 1.2rem 2rem;
+            font-size: 0.9rem;
+            border-top: 0.3rem solid green;
+        }
+
+        footer a {
+            color: #cdd6ff;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
 
         @media (max-width: 600px) {
             .nav-links  { display: none; }
