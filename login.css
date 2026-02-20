@@ -324,6 +324,80 @@
             font-size: 0.8rem;
             color: #aaa;
         }
+       
+
+       
+        #contact-section {
+            padding: 3rem 2rem;
+            max-width: 70rem;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.1rem;
+            color: #3f51b5;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0.8rem;
+            font-size: 0.92rem;
+            color: #555;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .contact-form label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.65rem 0.9rem;
+            border: 0.1rem solid #ccc;
+            border-radius: 0.4rem;
+            font-size: 0.95rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #3f51b5;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 7rem;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #3f51b5;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 0.4rem;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #2c3e9e;
+        }
    footer {
             background: #3f51b5;
             color: white;
