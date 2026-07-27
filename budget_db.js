@@ -3,7 +3,7 @@ import { auth, db, collection, addDoc, onAuthStateChanged, query, where, onSnaps
 let currentUser = null; 
 let unsubscribe = null; 
 let myChart = null;
-// Overlay ko yahan define kar lo taaki neeche use kar sako
+
 const overlay = document.querySelector(".overlay"); 
 
 onAuthStateChanged(auth, (user) => {
@@ -17,19 +17,19 @@ onAuthStateChanged(auth, (user) => {
 
         const monthInput = document.getElementById("monthInput");
 
-        // Month change hone par naya data load karo
+        
         monthInput.addEventListener("change", () => {
             loadMonthData(monthInput.value);
         });
 
-        // Default: Current Month
+        
         const today = new Date().toISOString().slice(0,7);
         monthInput.value = today;
         loadMonthData(today);
 
         function loadMonthData(selectedMonth) {
             
-            // Purana listener band karo (Memory Leak fix)
+           
             if (unsubscribe) {
                 unsubscribe();
             }
@@ -50,16 +50,16 @@ onAuthStateChanged(auth, (user) => {
 
                     if (data.type === "income") income += Number(data.amount);
                     if (data.type === "expense") expense += Number(data.amount);
-                    // Budget field ka naam 'bamount' hai
+                    
                     if (data.type === "budget") budget = Number(data.bamount);
                 });
 
-                // HTML Text Update
+               
                 document.querySelector(".imoney").innerText = income;
                 document.querySelector(".bmoney").innerText = budget;
                 document.querySelector(".rmoney").innerText = budget - expense;
                 
-                // --- CHART UPDATE START ---
+               
                 const ctx = document.getElementById('myChart');
 
                 if (myChart) {
@@ -76,7 +76,7 @@ onAuthStateChanged(auth, (user) => {
                         labels: [ 'Expense', 'Remaining'],
                         datasets: [{
                             label: 'Amount (₹)',
-                            // FIX: Yahan sahi variable names use karo (income, expense, budget)
+                            
                             data: [ expense, remaining], 
                             backgroundColor: [
                               
@@ -100,7 +100,7 @@ onAuthStateChanged(auth, (user) => {
                         }
                     }
                 });
-                // --- CHART UPDATE END ---
+                
             });
         }
 
@@ -109,12 +109,12 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// --- BUDGET UPDATE LOGIC ---
+
 const updateBtn = document.querySelector(".updatebtn");
 if (updateBtn) {
     updateBtn.addEventListener("click", async () => {
         const amount = document.getElementById("updateval").value;
-        // Month input se value uthao, taaki sahi month ka budget update ho
+       
         const selectedMonth = document.getElementById("monthInput").value; 
 
         if(!amount){
@@ -123,7 +123,7 @@ if (updateBtn) {
         }
 
         try {
-            // Check karo agar is month ka budget pehle se hai
+            
             const q = query(
                 collection(db, "expenses"),
                 where("uid", "==", currentUser.uid),
@@ -134,7 +134,7 @@ if (updateBtn) {
             const querySnapshot = await getDocs(q);
 
             if (!querySnapshot.empty) {
-                // Update Existing Budget
+                
                 const docId = querySnapshot.docs[0].id; 
                 const budgetRef = doc(db, "expenses", docId);
                 
@@ -142,7 +142,7 @@ if (updateBtn) {
                     bamount: Number(amount)
                 });
 
-                // Delete Duplicates (Safety Code)
+               
                 if(querySnapshot.docs.length > 1) {
                     for(let i = 1; i < querySnapshot.docs.length; i++) {
                         await deleteDoc(doc(db, "expenses", querySnapshot.docs[i].id));
@@ -150,16 +150,16 @@ if (updateBtn) {
                 }
 
             } else {
-                // Create New Budget
+              
                 await addDoc(collection(db, "expenses"), {
                     uid: currentUser.uid,
                     type: "budget",
                     bamount: Number(amount),
-                    month: selectedMonth // Month zaroor save karna
+                    month: selectedMonth 
                 });
             }
         
-            if(overlay) overlay.classList.remove("overlay1"); // Safe Close
+            if(overlay) overlay.classList.remove("overlay1"); 
             
         } catch (error) {
             console.error("Error updating budget: ", error);
