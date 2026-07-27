@@ -1,14 +1,14 @@
-// Select the canvas context
+
         const ctx = document.getElementById('myChart').getContext('2d');
 
-        // Create a new Chart
+
         new Chart(ctx, {
-            type: 'doughnut', // Types: 'line', 'bar', 'pie', 'doughnut', etc.
+            type: 'doughnut', 
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3], // Your data numbers
+                    data: [12, 19, 3, 5, 2, 3], 
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
