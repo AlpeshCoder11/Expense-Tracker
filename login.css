@@ -333,10 +333,9 @@
             margin: 0 auto;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-            gap: 2rem;
+       .contact-info{
+        text-align: center;
+            
         }
 
         .contact-info h3 {
